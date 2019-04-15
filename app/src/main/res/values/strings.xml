@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Passgify</string>
+    <string name="service_id">Service ID (e.g. Domain Name)</string>
+    <string name="key_hint">Secret Key</string>
+    <string name="salt">Salt</string>
+    <string name="default_prefix">Default Prefix</string>
+    <string name="button_gen">Generate</string>
+    <string name="button_set_values">Set Values</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_display_message">My Message</string>
+    <string name="menu_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="hash_alg_prompt">Prefix</string>
+    <string-array name="hash_alg_array">
+        <item>MD5</item>
+        <item>SHA-1</item>
+        <item>SHA-256</item>
+        <item>SHA-512</item>
+    </string-array>
+
+    <string name="prefix_prompt">Prefix</string>
+    <string-array name="prefix_array">
+        <item>&lt;Default&gt;</item>
+        <item>&lt;No Prefix&gt;</item>
+    </string-array>
+
+    <string name="length_prompt">Length</string>
+    <string-array name="length_array">
+        <item>32</item>
+        <item>20</item>
+        <item>12</item>
+        <item>8</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+.DS_Store
+.gradle
+*.iml
+local.properties
+ExampleUnitTest.java
+gradle/wrapper/gradle-wrapper.jar
+
+app/build/
+build
+captures
