@@ -123,17 +123,21 @@ public class OverwriteMessageActivity extends AppCompatActivity {
 
         String pb_digest = "";
         for(int i = 3; i < ra.length + 1; i += 3) {
+            byte byteA = ra[i-3];
+            byte byteB = ra[i-2];
+            byte byteC = ra[i-1];
+            byte bits0 = (byte) ((byteA >> 2) & 0x3F);    // 0x3F = (00111111)
+            byte bits1 = (byte) ((((byteA & 0x03) << 4) | (byteB >> 4)) & 0x3F);
+            byte bits2 = (byte) ((((byteB & 0x3F) << 2) | (byteC >> 6)) & 0x3F);
+            byte bits3 = (byte) (byteC & 0x3F);
+            pb_digest += "" + DEFAULT_PB64_MAP[bits0] + DEFAULT_PB64_MAP[bits1] + DEFAULT_PB64_MAP[bits2] + DEFAULT_PB64_MAP[bits3];
+            /* OLD pb64 algorithm
             byte bits2 = (byte) ((ra[i-3] & 0xFC) >> 2);                                 // 0xFC = (11111100)
             byte bits1 = (byte) (((ra[i-3] & 0x03) << 4) | ((ra[i-2] & 0xF0) >> 4));
             byte bits4 = (byte) (((ra[i-2] & 0x0F) << 2) | ((ra[i-1] & 0xC0) >> 6));
             byte bits3 = (byte) (ra[i-1] & 0x3F);                                        // 0x3F = (00111111)
-            /* Alternative pb64 algorithm
-            byte bits1 = (byte) (ra[i-3] & 0x3F);                                        // 0x3f = (00111111)
-            byte bits2 = (byte) ((((ra[i-2] & 0xF0) << 2) | (ra[i-3] >> 6)) & 0x3F);
-            byte bits3 = (byte) ((((ra[i-1] & 0xFC) << 4) | (ra[i-2] >> 4)) & 0x3F);
-            byte bits4 = (byte) ((ra[i-1] >> 2) & 0x3F);
-            */
             pb_digest += "" + DEFAULT_PB64_MAP[bits1] + DEFAULT_PB64_MAP[bits2] + DEFAULT_PB64_MAP[bits3] + DEFAULT_PB64_MAP[bits4];
+            */
         }
         return pb_digest;
     }

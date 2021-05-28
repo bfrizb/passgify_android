@@ -1,3 +1,5 @@
+**This project has been archived and is superseded by: https://github.com/bfrizb/passgify_mobile**
+
 Passgify
 ====================================================
 
